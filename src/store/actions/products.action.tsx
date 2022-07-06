@@ -38,7 +38,7 @@ export const fetchProductsThunk = () => async (dispatch: any) => {
     dispatch(fetchProductsStarted());
     await new Promise(resolve => setTimeout(resolve, 2500));
     try {
-        const response = await fetch('http://localhost:3000/products'); 
+        const response = await fetch('http://localhost:3001/products'); 
         const json = await response.json();          
         dispatch(fetchProductsSuccess(json));                  
 
@@ -50,7 +50,7 @@ export const fetchProductsThunk = () => async (dispatch: any) => {
 export const filterProductsThunk = (texto: string) => async (dispatch: any) => {
     dispatch(fetchProductsStarted());
     try {
-        const response = await fetch(`http://localhost:3000/products?title_like=${texto}`); 
+        const response = await fetch(`http://localhost:3001/products?title_like=${texto}`); 
         const json = await response.json();          
         dispatch(fetchProductsSuccess(json));                  
 
